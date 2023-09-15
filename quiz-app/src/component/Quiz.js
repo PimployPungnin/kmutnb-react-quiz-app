@@ -1,10 +1,24 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import QuestionsData from "../data/QuestionsData";
 
 const Quiz = ()=>{
     //console.log(QuestionsData);
     const [current, setCurrent] = useState(0)
     const [selectChoice,setSelectChoice] = useState("")
+
+    useEffect(()=>{
+        checkAnswer()
+    },[selectChoice])
+
+    const checkAnswer=()=>{
+        if(selectChoice!==""){
+            if(selectChoice===QuestionsData[current].answer){
+                console.log("ตอบถูกและได้คะแนน")
+            }else{
+                console.log("ตอบผิดไม่ได้คะแนน T_T")
+            }
+        }
+    }
     return(
         <div className="quiz">
             <h1>{QuestionsData[current].question}</h1>
