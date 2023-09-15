@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import QuestionsData from "../data/QuestionsData";
 import { DataContext } from "../App";
 
 const Quiz = ()=>{
-    //console.log(QuestionsData);
+    
     const [current, setCurrent] = useState(0)
     const [selectChoice,setSelectChoice] = useState("")
     const {score,setScore,setAppState} = useContext(DataContext)
